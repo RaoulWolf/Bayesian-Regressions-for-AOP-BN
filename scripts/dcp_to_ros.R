@@ -58,5 +58,3 @@ points(ros ~ conc, data = dcp_to_ros_data, col = "red")
 
 write.csv(dcp_to_ros_pred, "simulations/dcp_to_ros_pred.csv")
 saveRDS(dcp_to_ros_pred, "simulations/dcp_to_ros_pred.rds")
-
-summary(drc::drm(formula = ros ~ conc, data = dcp_to_ros_data, fct = drc::LL.5()))
