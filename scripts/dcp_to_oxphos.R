@@ -46,14 +46,12 @@ fixef(dcp_to_oxphos)
 
 dcp_to_oxphos_pred <- data.frame(conc = seq(2/3 * min(data$conc, na.rm = TRUE), 1.5 * max(data$conc, na.rm = TRUE), length.out = 10000))
 
-for (i in 1:nrow(dcp_to_oxphos_pred)) {
-  dcp_to_oxphos_pred[i, "oxphos_pred"] <- posterior_predict(dcp_to_oxphos, newdata = data.frame(conc = dcp_to_oxphos_pred[i, "conc"]), nsamples = 1)
-}
+dcp_to_oxphos_pred$oxphos_pred <- as.vector(posterior_predict(dcp_to_oxphos, newdata = dcp_to_oxphos_pred, nsamples = 1))
 
 head(dcp_to_oxphos_pred)
 
 plot(oxphos_pred ~ conc, data = dcp_to_oxphos_pred, type = "l")
-points(oxphos ~ conc, data = dcp_to_oxphos_data)
+points(oxphos ~ conc, data = dcp_to_oxphos_data, col = "red")
 
 write.csv(dcp_to_oxphos_pred, "simulations/dcp_to_oxphos_pred.csv")
 saveRDS(dcp_to_oxphos_pred, "simulations/dcp_to_oxphos_pred.rds")
