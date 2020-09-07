@@ -4,7 +4,7 @@ regression and Bayesian network modelling
 
 This repository contains the raw data and R scripts for “Quantification
 of an Adverse Outcome Pathway network by Bayesian regression and
-Bayesian network modelling” by Moe *et al.*, 2020. A link to the final
+Bayesian network modelling” by Moe *et al.*, 2021. A link to the final
 version of the article will be added here in the future.
 
 The `data` folder contains the raw data used for the analyses, and the
